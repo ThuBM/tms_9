@@ -1,0 +1,17 @@
+<% provide(:title, @subject.name) %>
+
+<div class="row col-md-10 col-md-offset-1">
+	<div id="subject-header">Subject: <%= @subject.name %></div>
+	<div id="subject-show-tasks" class="row">
+		<h3><%= @subject.name %></h3>
+		<div id="subject-show-tasks-content" class="col-md-10 col-md-offset-1">
+			<%= form_for(:enrollmentTask, method: 'PUT' ) do |f| %>
+				<%= render :partial => 'task', :collection => @tasks, locals: {f: f} %>
+			<% end %>
+		</div>
+	</div>
+	<div id="subject-show-instruction">
+		<p><h3>Instruction</h3><%= link_to "(hide)" %></p>
+		<div id="subject-show-instruction-content"><%= @subject.instruction %></div>
+	</div>
+</div>
