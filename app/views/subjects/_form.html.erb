@@ -1,0 +1,20 @@
+<%= form_for @subject do |f| %>
+  <div class="row">
+    <%= render 'shared/error_messages', :object => f.object %>
+  </div>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+    <%= f.label :instruction %>
+    <%= f.text_area :instruction, class: "form-control" %>
+  </p>
+  <%= f.fields_for :tasks do |builder| %>
+    <%= render "task_fields", :f => builder %>
+  <% end %>
+  <p>
+    <%= create_add_task_button(f, :tasks) %>
+  </p>
+  <p>
+    <%= f.submit "Create", class: "btn btn-primary" %>
+  </p>
+<% end %>

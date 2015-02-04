@@ -1,0 +1,7 @@
+<p>
+  <%= f.label :name, class: "col-md-3" %>
+  <%= f.text_field :name, class: "col-md-9" %>
+  <%= f.label :instruction, class: "col-md-3" %>
+  <%= f.text_area :instruction, class: "col-md-9" %>
+  <%= link_to "Remove", "javascript:void(0);", onclick: "remove_fields(this)" %>
+</p>
